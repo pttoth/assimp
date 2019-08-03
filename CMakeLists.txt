@@ -174,6 +174,8 @@ SET (ASSIMP_SOVERSION 5)
 
 SET( ASSIMP_PACKAGE_VERSION "0" CACHE STRING "the package-specific version used for uploading the sources" )
 
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -Wall -O3 -Wa,-mbig-obj -std=gnu++11" )
+
 if(NOT HUNTER_ENABLED)
   # Enable C++11 support globally
   set_property( GLOBAL PROPERTY CXX_STANDARD 11 )
@@ -568,7 +570,7 @@ IF ( ASSIMP_BUILD_ASSIMP_TOOLS )
 
   ADD_SUBDIRECTORY( tools/assimp_cmd/ )
 IF (NOT IOS)
-  ADD_SUBDIRECTORY( tools/assimp_qt_viewer/ )
+#  ADD_SUBDIRECTORY( tools/assimp_qt_viewer/ )
 ENDIF (NOT IOS)
 ENDIF ( ASSIMP_BUILD_ASSIMP_TOOLS )
 
